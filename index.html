@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaspar Kappou | Portfolio & Desarrollador</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0f1d',
+                        cardBg: '#121c2e',
+                        accent: '#3b82f6',
+                        accentHover: '#2563eb',
+                        neonGreen: '#10b981'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom scrollbar and animations */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0f1d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.3);
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 20px -3px rgba(59, 130, 246, 0.2);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-accent selection:text-white">
+
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="text-xl font-bold tracking-wider flex items-center gap-2">
+                <span class="text-accent">&lt;</span>Gaspar<span class="text-accent">Kappou/&gt;</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-accent transition-colors">Sobre mí</a>
+                <a href="#skills" class="hover:text-accent transition-colors">Habilidades</a>
+                <a href="#projects" class="hover:text-accent transition-colors">Proyectos</a>
+                <a href="#contact" class="px-4 py-2 bg-accent hover:bg-accentHover text-white rounded-lg transition-all shadow-lg shadow-accent/20">Contacto</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+            <a href="#about" class="mobile-link text-slate-300 hover:text-accent">Sobre mí</a>
+            <a href="#skills" class="mobile-link text-slate-300 hover:text-accent">Habilidades</a>
+            <a href="#projects" class="mobile-link text-slate-300 hover:text-accent">Proyectos</a>
+            <a href="#contact" class="mobile-link text-accent font-semibold">Contacto</a>
+        </div>
+    </nav>
+
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Background Glow Blobs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-neonGreen animate-pulse"></span>
+                    Disponible para nuevos proyectos
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Hola, soy <span class="bg-gradient-to-r from-accent to-cyan-400 bg-clip-text text-transparent">Gaspar Kappou</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-400 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                    Técnico Electrónico y Desarrollador de Software. Fusiono el mundo del hardware con el desarrollo de software moderno para crear soluciones eficientes e innovadoras.
+                </p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a href="#projects" class="px-6 py-3 bg-accent hover:bg-accentHover text-white font-medium rounded-xl transition-all shadow-lg shadow-accent/25 flex items-center gap-2">
+                        Ver Proyectos <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="#contact" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-xl border border-slate-700 transition-all">
+                        Contáctame
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Code / Visual Card -->
+            <div class="w-full md:w-auto flex justify-center">
+                <div class="bg-cardBg border border-slate-800 p-6 rounded-2xl glow-effect max-w-sm w-full relative">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                        </div>
+                        <span class="text-xs text-slate-500 font-mono">profile.py</span>
+                    </div>
+                    <pre class="text-xs font-mono text-slate-300 overflow-x-auto leading-relaxed"><code><span class="text-purple-400">class</span> <span class="text-yellow-300">GasparKappou</span>:
+    <span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(<span class="text-orange-400">self</span>):
+        <span class="text-orange-400">self</span>.rol = <span class="text-green-300">"Técnico & Desarrollador"</span>
+        <span class="text-orange-400">self</span>.hardware = [<span class="text-green-300">"ESP32"</span>, <span class="text-green-300">"Microcontroladores"</span>]
+        <span class="text-orange-400">self</span>.software = [<span class="text-green-300">"Python"</span>, <span class="text-green-300">"C++"</span>, <span class="text-green-300">"Flask"</span>]
+        <span class="text-orange-400">self</span>.pasion = <span class="text-green-300">"Automatización e IoT"</span>
+
+    <span class="text-purple-400">def</span> <span class="text-blue-400">build</span>(<span class="text-orange-400">self</span>):
+        <span class="text-purple-400">return</span> <span class="text-green-300">"¡Creando soluciones reales!"</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-cardBg/30 border-y border-slate-800/60">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">Sobre Mí</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-400">Mi trayectoria y enfoque profesional combinando el diagnóstico físico con la lógica de programación.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-slate-300 leading-relaxed">
+                    <p>
+                        Soy un <strong class="text-white font-semibold">Técnico Electrónico y Desarrollador de Software</strong> apasionado por entender cómo funcionan las cosas desde la placa base hasta las aplicaciones web en la nube.
+                    </p>
+                    <p>
+                        Tengo amplia experiencia en mantenimiento de hardware y software, diagnóstico de sistemas electrónicos, y desarrollo de soluciones embebidas utilizando microcontroladores avanzados como el <strong class="text-white font-semibold">ESP32</strong>.
+                    </p>
+                    <p>
+                        En el ámbito del desarrollo de software, domino lenguajes como <strong class="text-white font-semibold">Python, C++ y tecnologías web (HTML/CSS)</strong>, diseñando herramientas backend con frameworks robustos como <strong class="text-white font-semibold">Flask</strong>.
+                    </p>
+                    <div class="pt-4 flex gap-6">
+                        <div>
+                            <span class="block text-3xl font-extrabold text-accent mb-1">+5</span>
+                            <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">Años de Pasión Tecnológica</span>
+                        </div>
+                        <div class="border-l border-slate-800 pl-6">
+                            <span class="block text-3xl font-extrabold text-cyan-400 mb-1">100%</span>
+                            <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">Compromiso y Calidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 glow-card transition-all">
+                        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-accent text-xl mb-4">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="font-semibold text-white mb-2">Hardware & IoT</h3>
+                        <p class="text-sm text-slate-400">Diseño y programación de microcontroladores ESP32 y sistemas embebidos conectados.</p>
+                    </div>
+
+                    <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 glow-card transition-all">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 text-xl mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="font-semibold text-white mb-2">Software Backend</h3>
+                        <p class="text-sm text-slate-400">Desarrollo robusto en Python y Flask, optimizando lógica y rendimiento.</p>
+                    </div>
+
+                    <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 glow-card transition-all">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-neonGreen text-xl mb-4">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="font-semibold text-white mb-2">Mantenimiento</h3>
+                        <p class="text-sm text-slate-400">Diagnóstico avanzado, reparación y soporte integral de equipos y sistemas.</p>
+                    </div>
+
+                    <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 glow-card transition-all">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 text-xl mb-4">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="font-semibold text-white mb-2">Interfaces Web</h3>
+                        <p class="text-sm text-slate-400">Maquetación con HTML, CSS y control de dispositivos físicos mediante web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">Habilidades Técnicas</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-400">Tecnologías, lenguajes y herramientas con las que trabajo habitualmente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Programming Category -->
+                <div class="bg-cardBg p-8 rounded-2xl border border-slate-800">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 bg-accent/10 rounded-xl text-accent"><i class="fa-solid fa-laptop-code text-xl"></i></div>
+                        <h3 class="text-xl font-bold text-white">Lenguajes & Frameworks</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">Python & Flask</span>
+                                <span class="text-slate-500">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">C / C++</span>
+                                <span class="text-slate-500">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">HTML5 & CSS3</span>
+                                <span class="text-slate-500">Intermedio</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent h-full rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Hardware Category -->
+                <div class="bg-cardBg p-8 rounded-2xl border border-slate-800">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 bg-cyan-500/10 rounded-xl text-cyan-400"><i class="fa-solid fa-bolt text-xl"></i></div>
+                        <h3 class="text-xl font-bold text-white">Hardware & Electrónica</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">ESP32 & Microcontroladores</span>
+                                <span class="text-slate-500">Experto</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-cyan-400 h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">Diagnóstico Electrónico</span>
+                                <span class="text-slate-500">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-cyan-400 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">Sistemas Embebidos</span>
+                                <span class="text-slate-500">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-cyan-400 h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tools & Maintenance Category -->
+                <div class="bg-cardBg p-8 rounded-2xl border border-slate-800">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 bg-green-500/10 rounded-xl text-neonGreen"><i class="fa-solid fa-toolbox text-xl"></i></div>
+                        <h3 class="text-xl font-bold text-white">Herramientas & Sistemas</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">Mantenimiento Preventivo/Correctivo</span>
+                                <span class="text-slate-500">Experto</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-neonGreen h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">Git & Control de Versiones</span>
+                                <span class="text-slate-500">Intermedio</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-neonGreen h-full rounded-full" style="width: 75%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-300">Resolución de Problemas</span>
+                                <span class="text-slate-500">Experto</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-neonGreen h-full rounded-full" style="width: 98%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-cardBg/30 border-y border-slate-800/60">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">Proyectos Destacados</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-400">Una muestra de desarrollos prácticos que combinan hardware y software.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: ESP32 LED Matrix -->
+                <div class="bg-cardBg rounded-2xl border border-slate-800 overflow-hidden flex flex-col glow-card transition-all">
+                    <div class="h-48 bg-gradient-to-br from-blue-900/40 via-slate-900 to-indigo-950 p-6 flex flex-col justify-between relative border-b border-slate-800">
+                        <div class="flex justify-between items-center">
+                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30">IoT & Hardware</span>
+                            <i class="fa-solid fa-microchip text-accent text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-mono">C++ / ESP32</span>
+                            <h3 class="text-xl font-bold text-white mt-1">ESP32 LED Matrix Project</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Sistema de visualización matricial controlado por ESP32 vía Wi-Fi. Permite animaciones dinámicas, visualización de datos en tiempo real y control remoto mediante interfaz web integrada.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">ESP32</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">C++</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">WiFi / API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Flask Automation Dashboard -->
+                <div class="bg-cardBg rounded-2xl border border-slate-800 overflow-hidden flex flex-col glow-card transition-all">
+                    <div class="h-48 bg-gradient-to-br from-cyan-950/40 via-slate-900 to-blue-950 p-6 flex flex-col justify-between relative border-b border-slate-800">
+                        <div class="flex justify-between items-center">
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs font-semibold rounded-full border border-cyan-500/30">Software Web</span>
+                            <i class="fa-solid fa-server text-cyan-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-mono">Python / Flask</span>
+                            <h3 class="text-xl font-bold text-white mt-1">Dashboard de Automatización</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Plataforma backend desarrollada con Python y Flask para la supervisión y control de dispositivos conectados, recopilación de telemetría y gestión de estados de hardware.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">Python</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">Flask</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Hardware Diagnostics Tool -->
+                <div class="bg-cardBg rounded-2xl border border-slate-800 overflow-hidden flex flex-col glow-card transition-all">
+                    <div class="h-48 bg-gradient-to-br from-emerald-950/40 via-slate-900 to-slate-950 p-6 flex flex-col justify-between relative border-b border-slate-800">
+                        <div class="flex justify-between items-center">
+                            <span class="px-3 py-1 bg-green-500/20 text-neonGreen text-xs font-semibold rounded-full border border-green-500/30">Técnico / Lab</span>
+                            <i class="fa-solid fa-screwdriver-wrench text-neonGreen text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-mono">Diagnóstico & Firmware</span>
+                            <h3 class="text-xl font-bold text-white mt-1">Banco de Pruebas Electrónicas</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Implementación de rutinas de diagnóstico y software de banco para la verificación de componentes electrónicos, medición de parámetros y control de calidad en placas prototipo.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">C++</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">Hardware</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">Contacto Profesional</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-400">¿Tenés un proyecto en mente o querés conectar? Escribime directamente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <a href="https://www.linkedin.com/in/gaspar-kappou" target="_blank" rel="noopener noreferrer" class="bg-cardBg p-6 rounded-2xl border border-slate-800 flex flex-col items-center text-center glow-card transition-all group">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-1">LinkedIn</h3>
+                    <p class="text-xs text-slate-400">gaspar-kappou</p>
+                </a>
+
+                <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 flex flex-col items-center text-center glow-card transition-all">
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center text-cyan-400 text-xl mb-4">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-1">Ubicación</h3>
+                    <p class="text-xs text-slate-400">Buenos Aires, Argentina</p>
+                </div>
+
+                <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 flex flex-col items-center text-center glow-card transition-all">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center text-neonGreen text-xl mb-4">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-1">Especialidad</h3>
+                    <p class="text-xs text-slate-400">Hardware & Software</p>
+                </div>
+            </div>
+
+            <!-- Contact Form simulation -->
+            <div class="bg-cardBg p-8 sm:p-10 rounded-2xl border border-slate-800 shadow-xl">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">Tu Nombre</label>
+                            <input type="text" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent transition-colors" placeholder="Ej. Juan Pérez">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">Tu Correo</label>
+                            <input type="email" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent transition-colors" placeholder="juan@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">Mensaje</label>
+                        <textarea rows="4" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent transition-colors resize-none" placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-accent hover:bg-accentHover text-white font-semibold rounded-xl transition-all shadow-lg shadow-accent/20 flex items-center justify-center gap-2">
+                        Enviar Mensaje <i class="fa-solid fa-paper-plane text-xs"></i>
+                    </button>
+                </form>
+                <div id="form-success" class="hidden mt-4 p-4 bg-neonGreen/10 border border-neonGreen/30 text-neonGreen rounded-xl text-center text-sm font-medium">
+                    ¡Mensaje simulado con éxito! Gracias por ponerte en contacto con Gaspar.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-cardBg/80 border-t border-slate-800 py-12 text-center text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Gaspar Kappou. Todos los derechos reservados.</p>
+            <div class="flex items-center gap-6 text-lg">
+                <a href="https://www.linkedin.com/in/gaspar-kappou" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact form submission simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success');
+            
+            form.reset();
+            successMsg.classList.remove('hidden');
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
